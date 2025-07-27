@@ -1,0 +1,74 @@
+.modal {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 5vh;
+    height: 7vh;
+    width: 30%;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    animation: fadeInOut 5s ease-in-out;
+    opacity: 0;
+    filter: drop-shadow(0px 0px 10px #0000005e);
+}
+
+.pass {
+    background-color: #88ff88;
+}
+
+.erro {
+    background-color: #ff4949;
+    color: white;
+}
+
+.modal > h2 {
+    font-weight: 100;
+    font-size: 3vh;
+}
+
+.modal > span {
+    height: 5px;
+    width: 0%;
+    animation: timer 5s linear;
+    position: absolute;
+    bottom: 0;
+}
+
+.pass > span {
+    background-color: #008b00;
+}
+
+.erro > span {
+    background-color: #920000;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  
+  5% {
+    opacity: 1;
+  }
+  
+  95% {
+    opacity: 1;
+  }
+  
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes timer {
+    0% {
+        width: 100%;
+    }
+
+    100% {
+        width: 0%;
+    }
+}

@@ -1,0 +1,11 @@
+p {
+    font-weight: 600;
+}
+
+.test-passed {
+    color: green;
+}
+
+.test-failed {
+    color: red;
+}
