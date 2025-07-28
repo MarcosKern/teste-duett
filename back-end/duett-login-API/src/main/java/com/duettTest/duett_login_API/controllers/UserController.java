@@ -36,7 +36,7 @@ public class UserController {
             }
             return ResponseEntity.badRequest().body("Email ou senha incorretos.");
         } catch (UserNotFoundException e) {
-            return ResponseEntity.badRequest().body("Usuário não encontrado");
+            return ResponseEntity.badRequest().body("Email ou senha incorretos.");
         }
     }
 

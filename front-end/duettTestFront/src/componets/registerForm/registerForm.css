@@ -1,11 +1,12 @@
 p {
-    font-weight: 600;
+    color: #ffffff;
+    margin-left: 2vh;
 }
 
 .test-passed {
-    color: green;
+    color: #008000;
 }
 
 .test-failed {
-    color: red;
+    color: #ff4848;
 }

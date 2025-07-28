@@ -3,3 +3,128 @@ main {
     width: 100vw;
     display: flex;
 }
+
+main > aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    background-color: #003004;
+    filter: drop-shadow(5px 0px 10px #0000008f);
+}
+
+
+.button-switch {
+    position: relative;
+    width: 80%;
+    flex: 1;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.button-switch > .switch {
+    position: absolute;
+    width: 50%;
+    height: 6vh;
+    border-radius: 100px;
+    background-color: #82aa85;
+    transition: all .2s ease-in-out;
+    max-height: 40px;
+}
+
+.switch-left {
+    left: .5vh;
+    animation: fromRightToLeft .2s ease-in-out;
+}
+
+@keyframes fromRightToLeft {
+    0% {
+        left: 49%;
+    }
+
+    100% {
+        left: .5vh;
+    }
+}
+
+.switch-right {
+    right: .5vh;
+    animation: fromLeftToRight .2s ease-in-out;
+}
+
+
+@keyframes fromLeftToRight {
+    0% {
+        left: .5vh;
+    }
+
+    100% {
+        left: 49%;
+    }
+    
+}
+
+
+.button-switch > div {
+    padding: .5vh;
+    border-radius: 100px;
+    background-color: #ffffff;
+    width: 100%;
+    align-items: center;
+    display: flex;
+}
+
+.button-switch > div > button {
+    height: 6vh;
+    flex: 1;
+    background-color: transparent;
+    border-radius: 100px;
+    border: none;
+    z-index: 2;
+    color: #000;
+    transition: all .1s linear;
+    font-weight: 600;
+    max-height: 40px;
+}
+
+.button-switch > div > button:disabled {
+    color: #ffffff;
+}
+
+.button-switch > div > button:hover {
+    cursor: pointer;
+}
+
+main > aside > form {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    justify-content: center;
+    gap: 1vh;
+}
+
+main > aside > form > input, main > aside > form > button {
+    height: 6vh;
+    max-height: 40px;
+}
+
+main > aside > form > input {
+    padding: 0 2vh;
+}
+
+.main-page-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #82aa85;
+    flex: 3;
+    color: #ffffff;
+}
+
+.main-page-section > h1 {
+    font-size: 20vh;
+}

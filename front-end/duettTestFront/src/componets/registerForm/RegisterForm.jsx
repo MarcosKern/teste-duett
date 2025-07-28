@@ -4,20 +4,20 @@ import "./registerForm.css";
 import userContext from "../../context/Context";
 
 export default function RegisterForm() {
-  const {path, changeModalStatus} = useContext(userContext);
+  const { path, changeModalStatus } = useContext(userContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [cpf, setCpf] = useState("");
   const [name, setName] = useState("");
   const [confirmationPassword, setConfirmationPassword] = useState("");
 
-    const hasNumber = /.*\d.*/;
+  const hasNumber = /.*\d.*/;
   const hasLowerCase = /.*[a-z]/;
   const hasUpperCase = /.*[A-Z]/;
   const hasSpecial = /.*[$*&@#]/;
-  const validateCpf = /^\d{3}\.\d{3}\.\d{3}\-\d{2}$/
+  const validateCpf = /^\d{3}\.\d{3}\.\d{3}\-\d{2}$/;
 
-    function validateFields() {
+  function validateFields() {
     if (
       hasNumber.test(password) &&
       hasLowerCase.test(password) &&
@@ -32,21 +32,27 @@ export default function RegisterForm() {
     return true;
   }
 
-
   function register(name, email, cpf, password) {
-    axios.post(`${path}/user/register`, {
+    axios
+      .post(`${path}/user/register`, {
         name,
         email,
         cpf,
         password,
-        role: "USER"
-    }).then(function (response){
-        changeModalStatus(response.data, response.status)
-        console.log(response.status)
-    }).catch(function (error) {
-        changeModalStatus(error.response.data, error.response.status)
-    })
-}
+        role: "USER",
+      })
+      .then(function (response) {
+        changeModalStatus(response.data, response.status);
+        setEmail("");
+        setName("");
+        setCpf("");
+        setPassword("");
+        setConfirmationPassword("");
+      })
+      .catch(function (error) {
+        changeModalStatus(error.response.data, error.response.status);
+      });
+  }
 
   function testPassword(regex) {
     return regex.test(password) ? "test-passed" : "test-failed";
@@ -62,18 +68,21 @@ export default function RegisterForm() {
       <input
         type="email"
         placeholder="Email"
+        value={email}
         onInput={({ target }) => setEmail(target.value)}
         required
       />
       <input
         type="text"
         placeholder="Nome de usuario"
+        value={name}
         onInput={({ target }) => setName(target.value)}
         required
       />
       <input
         type="text"
         placeholder="CPF do usuario"
+        value={cpf}
         onInput={({ target }) => setCpf(target.value)}
         required
       />
