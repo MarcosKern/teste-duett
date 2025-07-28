@@ -34,7 +34,11 @@ export default function LoginPage() {
               Cadastrar
             </button>
           </div>
-            <span className={`${method == "login" ? "switch-left" : "switch-right"} switch`}></span>
+          <span
+            className={`${
+              method == "login" ? "switch-left" : "switch-right"
+            } switch`}
+          ></span>
         </div>
         {method == "login" ? <LoginForm /> : <RegisterForm />}
       </aside>

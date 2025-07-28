@@ -9,9 +9,8 @@ function App() {
   return (
     <UserProvider>
       <Routes>
-        <Route exact path="/" element={ <LoginPage/> } />
-        <Route exact path="/home" element={ <Home/> } />
-        
+        <Route exact path="/" element={<LoginPage />} />
+        <Route exact path="/home" element={<Home />} />
       </Routes>
     </UserProvider>
   );

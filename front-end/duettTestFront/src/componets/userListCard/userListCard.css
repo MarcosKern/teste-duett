@@ -1,0 +1,36 @@
+.user-card {
+  width: 33%;
+  background-color: #dadada;
+  display: flex;
+  flex-direction: column;
+  height: 18vh;
+  position: relative;
+  justify-content: space-around;
+  margin: 0.2vh;
+  border-radius: 1vh;
+}
+
+.user-card > button {
+  background-color: #ff5050;
+  border: none;
+  position: absolute;
+  right: 0.5vh;
+  top: 0.5vh;
+  padding: 0.5vh;
+  border-radius: 0.5vh;
+  transition: all 0.1 ease-in-out;
+  filter: brightness(1);
+}
+
+.user-card > button:hover {
+  cursor: pointer;
+  filter: brightness(0.8);
+}
+
+.user-card > button > img {
+  height: 3.4vh;
+}
+
+.user-card > p {
+  color: #000;
+}

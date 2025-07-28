@@ -1,0 +1,51 @@
+.home-main > aside {
+  justify-content: flex-start;
+  gap: 2vh;
+  padding: 2vh 0;
+  position: relative;
+}
+
+.home-main > aside > h2 {
+  color: #fff;
+}
+
+.home-main > aside > div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0.5vh;
+}
+
+.home-main_aside_button {
+  height: 6vh;
+  max-height: 50px;
+  border: none;
+  color: #fff;
+  font-size: 2.4vh;
+  background-color: #2f6b17;
+  filter: brightness(1);
+  transition: all 0.1s ease-in-out;
+}
+
+.home-main_aside_button:hover {
+  cursor: pointer;
+  filter: brightness(0.9);
+}
+
+.active {
+  filter: brightness(1.5);
+}
+
+.home-main > section {
+  flex: 3;
+  background-color: #48ff0028;
+}
+
+.logout {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border: none;
+  background-color: #ff4242 !important;
+  color: #fff;
+}

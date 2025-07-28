@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import axios from "axios";
 import userContext from "../../context/Context";
+import "./changePassword.css";
 
 export default function ChangePassword() {
   const { userCpf, userToken, path, changeModalStatus } =
@@ -67,7 +68,9 @@ export default function ChangePassword() {
         event.preventDefault();
         confirmChange();
       }}
+      className="change-password"
     >
+      <h2>Mudar senha</h2>
       <input
         type="password"
         value={password}
@@ -83,7 +86,7 @@ export default function ChangePassword() {
         required
       />
       <div>
-        <p>A senha deve conter ao minimo:</p>
+        <p className="tests-title">A senha deve conter ao minimo:</p>
         <p className={testPassword(hasUpperCase)}>Uma letra maiuscula.</p>
         <p className={testPassword(hasLowerCase)}>Uma letra minuscula.</p>
         <p className={testPassword(hasNumber)}>Um número.</p>
@@ -100,7 +103,7 @@ export default function ChangePassword() {
         required
       />
       {newPassword == confirmNewPassword ? null : (
-        <p>As senhas não são iguais.</p>
+        <p className="tests-title">As senhas não são iguais.</p>
       )}
       <button type="submit" disabled={validateFields()}>
         Confirmar nova senha

@@ -11,7 +11,7 @@ export default function LoginForm() {
     setUserRole,
     navigate,
     changeModalStatus,
-    path
+    path,
   } = useContext(userContext);
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -32,8 +32,8 @@ export default function LoginForm() {
         navigate("/home");
       })
       .catch(function (error) {
-        changeModalStatus(error.response.data, error.response.status)
-        setPassword("")
+        changeModalStatus(error.response.data, error.response.status);
+        setPassword("");
       });
   }
   return (
@@ -56,7 +56,12 @@ export default function LoginForm() {
         onInput={({ target }) => setPassword(target.value)}
         required
       />
-      <button type="submit" disabled={!(email.length > 0 && password.length > 0)}>Logar</button>
+      <button
+        type="submit"
+        disabled={!(email.length > 0 && password.length > 0)}
+      >
+        Logar
+      </button>
     </form>
   );
 }

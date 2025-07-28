@@ -1,0 +1,14 @@
+.user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  padding: 2vh;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.user-info > p {
+  color: #000;
+  font-size: 3vh;
+}

@@ -68,6 +68,9 @@ public class UserController {
         try {
             User user = this.repository.findByCpf(body.cpf()).orElseThrow(UserNotFoundException::new);
             if (encoder.matches(body.password(), user.getPassword())) {
+                if(encoder.matches(body.newPassword(), user.getPassword())) {
+                    return ResponseEntity.badRequest().body("A nova senha não pode ser igual a antiga.");
+                }
                 String encryptedPassword = this.encoder.encode(body.newPassword());
                 user.setPassword(encryptedPassword);
                 this.repository.save(user);

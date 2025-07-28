@@ -4,9 +4,18 @@ import HelloWorld from "../helloWorld/HelloWorld";
 import UserList from "../userList/UserList";
 import Configurations from "../configurations/Configurations";
 import ResponseModal from "../responseModal/ResponseModal";
+import "./home.css";
 
 export default function Home() {
-  const { userName, userRole, validateToken, logOut, showResponseModal, responseMsg, responseStatus } = useContext(userContext);
+  const {
+    userName,
+    userRole,
+    validateToken,
+    logOut,
+    showResponseModal,
+    responseMsg,
+    responseStatus,
+  } = useContext(userContext);
   const [page, setPage] = useState("");
 
   useEffect(() => {
@@ -16,26 +25,65 @@ export default function Home() {
   function changeFunction() {
     switch (page) {
       case "Configs":
-        return <Configurations/>
+        return <Configurations />;
       case "Users":
-        return <UserList/>
+        return <UserList />;
+      case "Home":
+        return <HelloWorld />;
       default:
         return <HelloWorld />;
     }
   }
 
   return (
-    <div>
+    <main className="home-main">
       <aside>
-        <p>{userName}</p>
+        <h2>{userName}</h2>
         <div>
-          <button onClick={() => setPage("Configs")}>Configurações</button>
-          {userRole == "ADMIN" ? <button onClick={() => setPage("Users")}>Usuarios</button> : null}
-          <button onClick={() => logOut()}>Sair</button>
+          <button
+            onClick={() => setPage("Home")}
+            className={
+              page == "Home"
+                ? "active home-main_aside_button"
+                : "home-main_aside_button"
+            }
+          >
+            Home
+          </button>
+          <button
+            onClick={() => setPage("Configs")}
+            className={
+              page == "Configs"
+                ? "active home-main_aside_button"
+                : "home-main_aside_button"
+            }
+          >
+            Configurações
+          </button>
+          {userRole == "ADMIN" ? (
+            <button
+              onClick={() => setPage("Users")}
+              className={
+                page == "Users"
+                  ? "active home-main_aside_button"
+                  : "home-main_aside_button"
+              }
+            >
+              Usuários
+            </button>
+          ) : null}
+          <button
+            onClick={() => logOut()}
+            className="logout home-main_aside_button"
+          >
+            Logout
+          </button>
         </div>
       </aside>
       <section>{changeFunction()}</section>
-      {showResponseModal ? <ResponseModal responseMsg={responseMsg} status={responseStatus}/> : null}
-    </div>
+      {showResponseModal ? (
+        <ResponseModal responseMsg={responseMsg} status={responseStatus} />
+      ) : null}
+    </main>
   );
 }

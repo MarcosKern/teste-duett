@@ -1,12 +1,12 @@
 p {
-    color: #ffffff;
-    margin-left: 2vh;
+  color: #ffffff;
+  margin-left: 2vh;
 }
 
 .test-passed {
-    color: #008000;
+  color: #008000;
 }
 
 .test-failed {
-    color: #ff4848;
+  color: #ff4848;
 }

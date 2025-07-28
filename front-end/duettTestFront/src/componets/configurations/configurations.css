@@ -1,0 +1,33 @@
+.configurations {
+  display: flex;
+  height: 100%;
+}
+
+.configurations > aside {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background-color: #00000071;
+  padding: 2vh 0;
+}
+
+.configurations_aside_button {
+  background-color: #00000000;
+  border: none;
+  color: #fff;
+  height: 4vh;
+  transition: all 0.1s ease-in-out;
+}
+
+.configurations_aside_button:hover {
+  cursor: pointer;
+  background-color: #00000067;
+}
+
+.active {
+  background-color: #00000067;
+}
+
+.configurations > section {
+  flex: 4;
+}
