@@ -9,6 +9,7 @@ export default function RegisterForm() {
   const [password, setPassword] = useState("");
   const [cpf, setCpf] = useState("");
   const [name, setName] = useState("");
+  const [role, setRole] = useState("USER");
   const [confirmationPassword, setConfirmationPassword] = useState("");
 
   const hasNumber = /.*\d.*/;
@@ -39,7 +40,7 @@ export default function RegisterForm() {
         email,
         cpf,
         password,
-        role: "USER",
+        role,
       })
       .then(function (response) {
         changeModalStatus(response.data, response.status);
@@ -114,7 +115,34 @@ export default function RegisterForm() {
       {password == confirmationPassword ? null : (
         <p>As senhas não são iguais.</p>
       )}
-      <button type="submit" disabled={validateFields()}>
+      <div className="radio-group">
+        <div className="radio-item">
+          <input
+            type="radio"
+            id="usuario"
+            name="tipoUsuario"
+            value="USER"
+            defaultChecked
+            onChange={({ target }) => setRole(target.value)}
+          />
+          <label htmlFor="usuario">Usuário</label>
+        </div>
+        <div className="radio-item">
+          <input
+            type="radio"
+            id="administrador"
+            name="tipoUsuario"
+            value="ADMIN"
+            onChange={({ target }) => setRole(target.value)}
+          />
+          <label htmlFor="administrador">Administrador</label>
+        </div>
+      </div>
+      <button
+        className="register-button"
+        type="submit"
+        disabled={validateFields()}
+      >
         Registrar
       </button>
     </form>

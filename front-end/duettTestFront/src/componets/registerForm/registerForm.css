@@ -10,3 +10,22 @@ p {
 .test-failed {
   color: #ff4848;
 }
+
+.radio-group {
+  display: flex;
+  justify-content: space-around;
+  color: #fff;
+}
+
+.radio-group > .radio-item > label {
+  margin-left: 0.5vh;
+}
+
+.radio-group > .radio-item > label:hover,
+.radio-group > .radio-item > input:hover {
+  cursor: pointer;
+}
+
+.register-button:hover {
+  cursor: pointer;
+}

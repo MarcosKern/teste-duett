@@ -3,10 +3,10 @@ import userContext from "../../context/Context";
 import trashCan from "../../assets/icons/icons8-trash.svg";
 import "./userListCard.css";
 
-export default function UserListCard({ name, email, cpf, role, key }) {
+export default function UserListCard({ name, email, cpf, role }) {
   const { deleteUser } = useContext(userContext);
   return (
-    <div key={key} className="user-card">
+    <div className="user-card">
       <p>Nome: {name}</p>
       <p>Email: {email}</p>
       <p>CPF: {cpf}</p>
